@@ -17,11 +17,14 @@ def read_acronyms():
                 key = key.strip()
                 value = rest[rest.find('(') + 1:rest.find(')')].strip().lower()
                 acronyms[key] = value
-    
+    #print(acronyms)
     return acronyms
 
-def replace_acronyms(text, acronyms):
+def replace_acronyms(text):
     words = text.split()
+    acronyms = read_acronyms()
+    print(acronyms)
+
     for i, word in enumerate(words):
         if word.upper() in acronyms.keys():
             words[i] = acronyms[word.upper()]
@@ -29,8 +32,7 @@ def replace_acronyms(text, acronyms):
 
 def main():
     text = "Hoje não me sinto muito bem tbh."
-    acronyms = read_acronyms()
-    result = replace_acronyms(text, acronyms)
+    result = replace_acronyms(text)
     print(result)
 
 main()
