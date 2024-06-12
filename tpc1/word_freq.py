@@ -39,8 +39,6 @@ for txt in cl.text():
     elif "-n" in cl.opt:
         imprime(sorted(ocorr.items()))
     
-    
-
     else:
         imprime(ocorr.items())
 
